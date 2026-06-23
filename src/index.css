@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
+
+    --primary: 215 70% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 25% 93%;
+    --secondary-foreground: 220 30% 15%;
+
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 172 55% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 215 70% 28%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(215 70% 28%) 0%, hsl(215 60% 38%) 50%, hsl(172 55% 40%) 100%);
+    --card-shadow: 0 1px 3px 0 hsl(220 30% 15% / 0.06), 0 1px 2px -1px hsl(220 30% 15% / 0.06);
+    --card-shadow-lg: 0 10px 25px -5px hsl(220 30% 15% / 0.08), 0 8px 10px -6px hsl(220 30% 15% / 0.04);
+    --card-shadow-hover: 0 20px 40px -10px hsl(220 30% 15% / 0.12);
+    --accent-glow: 0 4px 20px -4px hsl(172 55% 40% / 0.35);
+  }
+
+  .dark {
+    --background: 222 30% 8%;
+    --foreground: 210 20% 95%;
+    --card: 222 25% 12%;
+    --card-foreground: 210 20% 95%;
+    --popover: 222 25% 12%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 210 50% 60%;
+    --primary-foreground: 220 30% 10%;
+    --secondary: 217 25% 18%;
+    --secondary-foreground: 210 20% 95%;
+    --muted: 217 25% 18%;
+    --muted-foreground: 215 15% 60%;
+    --accent: 172 45% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 25% 20%;
+    --input: 217 25% 20%;
+    --ring: 210 50% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .card-elevated {
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .accent-glow {
+    box-shadow: var(--accent-glow);
+  }
+
+  .calculator-input {
+    @apply w-full rounded-lg border border-input bg-card px-4 py-3 text-lg font-medium text-card-foreground transition-all duration-200;
+  }
+
+  .calculator-input:focus {
+    @apply outline-none ring-2 ring-accent border-accent;
+  }
+
+  .section-pattern {
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+}
